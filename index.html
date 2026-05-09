@@ -45,7 +45,7 @@ body {
   to { transform: translateY(-100px); }
 }
 
-/* LAYOUT */
+/* MAIN */
 .container {
   max-width: 900px;
   margin: 0 auto;
@@ -69,7 +69,6 @@ h1 {
   margin-bottom: 40px;
 }
 
-/* CARD */
 .card {
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(10px);
@@ -90,7 +89,7 @@ h1 {
   50% { transform: scale(1.05); }
 }
 
-/* BUTTON */
+/* YOUR ORIGINAL BUTTON (UNCHANGED) */
 button {
   border: none;
   padding: 14px 28px;
@@ -107,14 +106,36 @@ button:hover {
   transform: translateY(-2px);
 }
 
-/* MESSAGE */
 .hidden {
   display: none;
   margin-top: 20px;
   font-size: 1.2rem;
 }
 
-/* FLOATING HEARTS */
+/* 💖 SIDE MAGIC BUTTON */
+.side-magic {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #22c55e;
+  color: white;
+  padding: 14px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(34,197,94,0.4);
+  z-index: 999;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transition: 0.3s;
+}
+
+.side-magic:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* HEARTS */
 .floating-heart {
   position: fixed;
   bottom: -30px;
@@ -129,11 +150,6 @@ button:hover {
     opacity: 0;
   }
 }
-
-.footer {
-  margin-top: 40px;
-  opacity: 0.9;
-}
 </style>
 </head>
 
@@ -141,8 +157,13 @@ button:hover {
 
 <div class="stars"></div>
 
-<!-- 🎵 MUSIC -->
+<!-- 🎵 SONG -->
 <audio id="music" src="sayanghensem.mp3" loop></audio>
+
+<!-- 💖 SIDE BUTTON (NEW) -->
+<div class="side-magic" onclick="magicStart()">
+  Tekan sini sayang (ada magic) ✨
+</div>
 
 <div class="container">
 
@@ -158,51 +179,47 @@ button:hover {
     <h2>My Love Letter for sayang</h2>
 
     <p>
-      Dear sayang,<br><br>
-      i love you so much.<br>
-      thank you so much for everything.<br>
-      thank you sayang for loving me this much ❤️<br><br>
-      you are one in a million, like a once-in-a-blue-moon miracle.<br>
-      taktau nak tulis apa, but you are really special.<br>
-      I like your smile so much.<br>
-      so please smile always even when you don’t feel like it.<br><br>
-      — husin hensem lagi kacak bergaya ❤️
+     Dear sayang,<br><br>
+     i love you so much.<br>       
+     thank you so much for everything.<br>      
+     thank you sayang for loving me this much ❤️<br>       
+     you are one in a million, like a once-in-a-blue-moon miracle.<br><br>      
+     taktau nak tulis apa, but you are really special.<br>       
+     and saya suka tengok ayang senyum.<br>       
+     so ayang kene senyum selalu , even ayang rasa taknak senyum.<br>       
+     because your smile is so beautiful that it blurred all the thing surrounding you.<br>
+     ceyy sweetnye ayat , sape la agaknya tuis ni<br><br>       
+     — husin hensem lagi kacak bergaya ❤️
     </p>
   </div>
 
   <div class="card">
-    <h2>A Magic Button ✨</h2>
+    <h2>A Normal Button (UNCHANGED)</h2>
 
-    <!-- 💖 MAGIC BUTTON -->
+    <!-- your original button stays -->
     <button onclick="magicStart()">
-      Tekan sini sayang (ada magic) ✨
+      Click Me, Sayang 💖
     </button>
 
     <div id="message" class="hidden">
-      please love me like you always do, please never get bored of me, please stay sayang ❤️✨
+      please love me like you always do ❤️✨
     </div>
-  </div>
-
-  <div class="footer">
-    Made with all my love for you 💕
   </div>
 
 </div>
 
 <script>
 function magicStart() {
-  // show message
   document.getElementById('message').style.display = 'block';
 
-  // play music
   const music = document.getElementById('music');
   music.volume = 0.8;
   music.play().catch(err => {
-    console.log("Autoplay blocked:", err);
+    console.log("blocked:", err);
   });
 }
 
-/* floating hearts */
+/* hearts */
 function createHeart() {
   const heart = document.createElement('div');
   heart.className = 'floating-heart';
@@ -216,7 +233,7 @@ function createHeart() {
 
 setInterval(createHeart, 500);
 
-/* optional autoplay attempt (may be blocked by browser) */
+/* optional autoplay attempt */
 window.addEventListener("load", () => {
   const music = document.getElementById("music");
   music.play().catch(() => {});
