@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Aisya Humairah ❤️</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a, #7c3aed);
+  min-height: 100vh;
+}
+.stars, .stars:after {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+    radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(2px 2px at 130px 80px, #fff, transparent),
+    radial-gradient(1px 1px at 160px 20px, #fff, transparent);
+  background-size: 200px 100px;
+  animation: drift 60s linear infinite;
+  opacity: .6;
+  content: "";
+  z-index: -2;
+}
+.stars:after { animation-direction: reverse; opacity: .3; }
+@keyframes drift { from { transform: translateY(0); } to { transform: translateY(-100px); } }
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+h1 {
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  margin-bottom: 10px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff, 0 0 20px #f472b6; }
+  to   { text-shadow: 0 0 20px #fff, 0 0 40px #ec4899; }
+}
+.subtitle {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  margin-bottom: 40px;
+}
+.card {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  margin-bottom: 30px;
+}
+.heart {
+  font-size: 4rem;
+  animation: beat 1.2s infinite;
+}
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  50% { transform: scale(1.05); }
+}
+button {
+  border: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #ec4899;
+  color: white;
+  box-shadow: 0 8px 20px rgba(236,72,153,0.4);
+}
+button:hover { transform: translateY(-2px); }
+.hidden {
+  display: none;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+.floating-heart {
+  position: fixed;
+  bottom: -30px;
+  font-size: 24px;
+  animation: floatUp linear forwards;
+  pointer-events: none;
+}
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+.footer {
+  margin-top: 40px;
+  opacity: 0.9;
+}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+
+<div class="container">
+  <h1>For Aisya Humairah ❤️</h1>
+  <p class="subtitle">Once in a blue moon, I found someone as beautiful and rare as you.<br>It feels like our story was written in the stars. ✨</p>
+
+  <div class="card">
+    <div class="heart">❤️</div>
+    <h2>My Love Letter to You</h2>
+    <p>
+      Dear Aisya,<br><br>
+      I love you so much.<br>
+      Thank you so much for everything you have done for me.<br>
+      Thank you for your kindness, your patience, your beautiful smile, and the happiness you bring into my life.<br><br>
+      You are one in a million, like a once-in-a-blue-moon miracle.<br>
+      Meeting you feels like something written in the stars.<br><br>
+      No matter how far apart we are, my heart will always belong to you.<br>
+      Every time I hear "Sparks" by Coldplay, I think of you.<br><br>
+      I love you today, tomorrow, and forever.<br><br>
+      — Saya ❤️
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>A Little Surprise</h2>
+    <button onclick="showMessage()">Click Me, Sayang 💖</button>
+    <div id="message" class="hidden">
+      You are my favorite person, my brightest star, and the best thing that has ever happened to me. 🌙✨❤️
+    </div>
+  </div>
+
+  <div class="footer">
+    Made with all my love for you, Aisya. 💕
+  </div>
+</div>
+
+<script>
+function showMessage() {
+  document.getElementById('message').style.display = 'block';
+}
+
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'floating-heart';
+  heart.textContent = '💖';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (4 + Math.random() * 4) + 's';
+  heart.style.fontSize = (18 + Math.random() * 24) + 'px';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createHeart, 500);
+</script>
+</body>
+</html>
