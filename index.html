@@ -4,8 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Aisya Humairah ❤️</title>
+
 <style>
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -15,6 +17,8 @@ body {
   background: linear-gradient(135deg, #0f172a, #1e3a8a, #7c3aed);
   min-height: 100vh;
 }
+
+/* STARS */
 .stars, .stars:after {
   position: fixed;
   inset: 0;
@@ -30,28 +34,40 @@ body {
   content: "";
   z-index: -2;
 }
-.stars:after { animation-direction: reverse; opacity: .3; }
-@keyframes drift { from { transform: translateY(0); } to { transform: translateY(-100px); } }
+
+.stars:after {
+  animation-direction: reverse;
+  opacity: .3;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100px); }
+}
 
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 80px 20px;
 }
+
 h1 {
   font-size: clamp(2.2rem, 6vw, 5rem);
   margin-bottom: 10px;
   animation: glow 2s ease-in-out infinite alternate;
 }
+
 @keyframes glow {
   from { text-shadow: 0 0 10px #fff, 0 0 20px #f472b6; }
   to   { text-shadow: 0 0 20px #fff, 0 0 40px #ec4899; }
 }
+
 .subtitle {
   font-size: 1.3rem;
   opacity: 0.95;
   margin-bottom: 40px;
 }
+
 .card {
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(10px);
@@ -60,15 +76,18 @@ h1 {
   box-shadow: 0 10px 40px rgba(0,0,0,0.25);
   margin-bottom: 30px;
 }
+
 .heart {
   font-size: 4rem;
   animation: beat 1.2s infinite;
 }
+
 @keyframes beat {
   0%, 100% { transform: scale(1); }
   25% { transform: scale(1.15); }
   50% { transform: scale(1.05); }
 }
+
 button {
   border: none;
   padding: 14px 28px;
@@ -79,12 +98,15 @@ button {
   color: white;
   box-shadow: 0 8px 20px rgba(236,72,153,0.4);
 }
+
 button:hover { transform: translateY(-2px); }
+
 .hidden {
   display: none;
   margin-top: 20px;
   font-size: 1.2rem;
 }
+
 .floating-heart {
   position: fixed;
   bottom: -30px;
@@ -92,28 +114,40 @@ button:hover { transform: translateY(-2px); }
   animation: floatUp linear forwards;
   pointer-events: none;
 }
+
 @keyframes floatUp {
   to {
     transform: translateY(-110vh) rotate(360deg);
     opacity: 0;
   }
 }
+
 .footer {
   margin-top: 40px;
   opacity: 0.9;
 }
 </style>
 </head>
+
 <body>
 <div class="stars"></div>
 
+<!-- ❤️ AUDIO -->
+<audio id="music" src="sayanghensem.mp3" loop></audio>
+
 <div class="container">
+
   <h1>Untuk busuk saya, Aisya Humairah ❤️</h1>
-  <p class="subtitle">Once in a blue moon, I found someone as beautiful and rare as you.<br>✨</p>
+
+  <p class="subtitle">
+    Once in a blue moon, I found someone as beautiful and rare as you.<br>✨
+  </p>
 
   <div class="card">
     <div class="heart">❤️</div>
+
     <h2>My Love Letter for sayang</h2>
+
     <p>
       Dear sayang,<br><br>
       i love you so much.<br>
@@ -131,7 +165,10 @@ button:hover { transform: translateY(-2px); }
 
   <div class="card">
     <h2>A Little Surprise</h2>
-    <button onclick="showMessage()">Click Me, Sayang 💖</button>
+
+    <!-- ❤️ MUSIC BUTTON -->
+    <button onclick="startEverything()">Click Me, Sayang 💖</button>
+
     <div id="message" class="hidden">
       please love me like you always do , please never get bored of me , please stay sayang , sorry for today hehe. 🌙✨❤️
     </div>
@@ -140,13 +177,22 @@ button:hover { transform: translateY(-2px); }
   <div class="footer">
     Made with all my love for you, Sayang. 💕
   </div>
+
 </div>
 
 <script>
-function showMessage() {
+function startEverything() {
+  // show message
   document.getElementById('message').style.display = 'block';
+
+  // play music
+  const music = document.getElementById('music');
+  music.play().catch(err => {
+    console.log("Autoplay blocked:", err);
+  });
 }
 
+/* floating hearts */
 function createHeart() {
   const heart = document.createElement('div');
   heart.className = 'floating-heart';
@@ -159,6 +205,15 @@ function createHeart() {
 }
 
 setInterval(createHeart, 500);
+
+/* optional autoplay attempt (may be blocked) */
+window.addEventListener("load", () => {
+  const music = document.getElementById("music");
+  music.play().catch(() => {
+    console.log("Autoplay blocked by browser");
+  });
+});
 </script>
+
 </body>
 </html>
